@@ -10,6 +10,7 @@
     --amarelo: #ffca05;
     --preto: #151515;
     --cinza: #666;
+    --fundo: #ffffff;
     --fundo-claro: #fff8df;
 }
 
@@ -19,28 +20,30 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
+    background: var(--fundo);
     color: var(--preto);
 }
 
 
 /* =========================
-   DESTAQUE
+   HERO
 ========================= */
 
 .hero {
-    padding: 80px 8%;
-    background: radial-gradient(
-        circle at center,
-        #fff2b8,
-        #fff 65%
-    );
+    padding: 70px 8%;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff2b8 0%,
+            #ffffff 55%
+        );
 }
 
 .hero-content {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
     display: flex;
+    align-items: center;
     justify-content: center;
     text-align: center;
 }
@@ -58,7 +61,7 @@ body {
 .hero h1 {
     font-size: clamp(48px, 8vw, 82px);
     line-height: 0.95;
-    margin: 20px 0;
+    margin: 18px 0;
     font-weight: 900;
 }
 
@@ -78,15 +81,15 @@ body {
 .badges {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin-top: 28px;
+    margin-top: 25px;
 }
 
 .badges span {
     background: var(--preto);
     color: var(--amarelo);
-    padding: 12px 16px;
+    padding: 11px 14px;
     border-radius: 8px;
     font-weight: 800;
     font-size: 13px;
@@ -126,17 +129,18 @@ body {
 
 
 /* =========================
-   PRODUTOS
+   CARDS DOS PRODUTOS
 ========================= */
 
 .produto-card {
-    background: #fff;
-    border: 2px solid #eee;
+    background: white;
+    border: 2px solid #eeeeee;
     border-left: 6px solid var(--vermelho);
     border-radius: 15px;
     padding: 28px;
     text-align: left;
-    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.06);
     transition: 0.25s;
 }
 
@@ -154,7 +158,7 @@ body {
 .tag {
     display: inline-block;
     background: var(--vermelho);
-    color: #fff;
+    color: white;
     padding: 7px 11px;
     border-radius: 6px;
     font-weight: 900;
@@ -207,11 +211,12 @@ body {
 }
 
 .adicionais-grid > div {
-    background: #fff;
-    border: 2px solid #eee;
+    background: white;
+    border: 2px solid #eeeeee;
     padding: 25px 15px;
     border-radius: 14px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.05);
     transition: 0.25s;
     font-size: 32px;
 }
@@ -251,11 +256,12 @@ body {
 }
 
 .bebidas-grid > div {
-    background: #fff;
-    border: 2px solid #eee;
+    background: white;
+    border: 2px solid #eeeeee;
     padding: 25px 15px;
     border-radius: 14px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.05);
     transition: 0.25s;
     font-size: 30px;
 }
@@ -291,19 +297,18 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 70px 8%;
-    background: #fff;
-    max-width: 1000px;
-    margin: auto;
+    background: white;
 }
 
 .info-card {
-    background: #fff;
-    border: 2px solid #eee;
+    background: white;
+    border: 2px solid #eeeeee;
     border-top: 5px solid var(--vermelho);
     padding: 30px;
     text-align: center;
     border-radius: 14px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.05);
 }
 
 .info-card > div {
@@ -355,7 +360,7 @@ body {
 }
 
 .ingredientes div {
-    background: #fff;
+    background: white;
     padding: 15px;
     border-left: 4px solid var(--amarelo);
     border-radius: 7px;
@@ -387,12 +392,13 @@ body {
 }
 
 .opcoes div {
-    background: #fff;
+    background: white;
     color: #111;
     padding: 25px 50px;
     border-radius: 12px;
     min-width: 220px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
     font-size: 25px;
 }
 
@@ -441,13 +447,14 @@ body {
     border: none;
     cursor: pointer;
     background: var(--vermelho);
-    color: #fff;
+    color: white;
     padding: 18px 40px;
     border-radius: 10px;
     font-weight: 900;
     font-size: 18px;
     margin-top: 25px;
-    box-shadow: 0 8px 20px rgba(227, 6, 19, 0.2);
+    box-shadow:
+        0 8px 20px rgba(227, 6, 19, 0.2);
     transition: 0.25s;
 }
 
@@ -506,12 +513,13 @@ footer p {
 .pedido-box {
     width: 100%;
     max-width: 560px;
-    background: #fff;
+    background: white;
     border-radius: 18px;
     padding: 32px;
     position: relative;
     border-top: 7px solid var(--vermelho);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .pedido-box h2 {
@@ -563,6 +571,74 @@ footer p {
     resize: vertical;
 }
 
+
+/* =========================
+   ESCOLHA DO POTE DOG
+========================= */
+
+.potes-dog {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.pote-opcao {
+    width: 100%;
+    min-width: 0;
+    border: 2px solid #eeeeee;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #222;
+}
+
+.pote-opcao:hover {
+    border-color: var(--amarelo);
+    transform: translateY(-2px);
+}
+
+.pote-opcao.selecionado {
+    border-color: var(--vermelho);
+    background: #fff8df;
+    box-shadow:
+        0 0 0 2px rgba(227, 6, 19, 0.08);
+}
+
+.pote-emoji {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.pote-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.pote-info strong {
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.pote-info small {
+    color: var(--vermelho);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+
+/* =========================
+   ADICIONAIS E TIPO
+========================= */
+
 .opcoes-pedido,
 .tipo-pedido {
     display: grid;
@@ -585,11 +661,16 @@ footer p {
     border-color: var(--amarelo);
 }
 
+
+/* =========================
+   BOTÃO ADICIONAR
+========================= */
+
 .adicionar-pedido {
     width: 100%;
     border: none;
     background: var(--vermelho);
-    color: #fff;
+    color: white;
     padding: 17px;
     border-radius: 9px;
     margin-top: 25px;
@@ -602,6 +683,11 @@ footer p {
     background: var(--vermelho-escuro);
 }
 
+
+/* =========================
+   RESUMO
+========================= */
+
 .resumo-texto {
     background: #fff8e1;
     border-left: 5px solid var(--amarelo);
@@ -612,16 +698,26 @@ footer p {
     line-height: 1.7;
 }
 
+
+/* =========================
+   WHATSAPP
+========================= */
+
 .enviar-whatsapp {
     display: block;
     text-align: center;
     text-decoration: none;
     background: #25D366;
-    color: #fff;
+    color: white;
     padding: 17px;
     border-radius: 9px;
     font-weight: 900;
 }
+
+
+/* =========================
+   CANCELAR
+========================= */
 
 .voltar-pedido {
     width: 100%;
@@ -629,14 +725,14 @@ footer p {
     padding: 13px;
     border: 2px solid #ddd;
     border-radius: 9px;
-    background: #fff;
+    background: white;
     color: #555;
     cursor: pointer;
 }
 
 
 /* =========================
-   CELULAR
+   TABLET / CELULAR
 ========================= */
 
 @media (max-width: 850px) {
@@ -654,6 +750,10 @@ footer p {
     }
 }
 
+
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 600px) {
 
@@ -683,12 +783,42 @@ footer p {
 
     .pedido-box {
         padding: 25px 18px;
+        max-height: 95vh;
+        overflow-y: auto;
     }
+
+    /* POTES NO CELULAR */
+
+    .potes-dog {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .pote-opcao {
+        padding: 14px;
+        min-height: 65px;
+    }
+
+    .pote-emoji {
+        font-size: 29px;
+    }
+
+    .pote-info strong {
+        font-size: 16px;
+    }
+
+    .pote-info small {
+        font-size: 14px;
+    }
+
+    /* ADICIONAIS */
 
     .opcoes-pedido,
     .tipo-pedido {
         grid-template-columns: 1fr;
     }
+
+    /* BADGES */
 
     .badges {
         flex-direction: column;
@@ -700,6 +830,10 @@ footer p {
 }
 
 
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
 @media (max-width: 400px) {
 
     .hero h1 {
@@ -710,7 +844,27 @@ footer p {
         padding: 22px;
     }
 
+    .pedido-box {
+        padding: 22px 15px;
+    }
+
     .pedido-box h2 {
         font-size: 25px;
+    }
+
+    .pote-opcao {
+        padding: 12px;
+    }
+
+    .pote-emoji {
+        font-size: 26px;
+    }
+
+    .pote-info strong {
+        font-size: 14px;
+    }
+
+    .pote-info small {
+        font-size: 13px;
     }
 }
