@@ -105,8 +105,6 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- VALORES DO POTE SELECIONADO -->
-
             <input
                 type="hidden"
                 id="produto"
@@ -246,6 +244,7 @@ function abrirSistemaPedido() {
                         name="tipo"
                         value="Delivery"
                         checked
+                        onchange="mostrarEndereco()"
                     >
                     🛵 Delivery
                 </label>
@@ -256,9 +255,73 @@ function abrirSistemaPedido() {
                         type="radio"
                         name="tipo"
                         value="Retirada"
+                        onchange="mostrarEndereco()"
                     >
                     🛍️ Retirada
                 </label>
+
+            </div>
+
+
+            <!-- ===============================
+                 DADOS DO CLIENTE
+            ================================ -->
+
+            <div id="dados-entrega">
+
+                <label>
+                    👤 Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeCliente"
+                    placeholder="Digite seu nome"
+                >
+
+
+                <label>
+                    🏠 Endereço
+                </label>
+
+                <input
+                    type="text"
+                    id="enderecoCliente"
+                    placeholder="Rua / Avenida"
+                >
+
+
+                <label>
+                    🔢 Número
+                </label>
+
+                <input
+                    type="text"
+                    id="numeroCliente"
+                    placeholder="Número da casa"
+                >
+
+
+                <label>
+                    📌 Bairro
+                </label>
+
+                <input
+                    type="text"
+                    id="bairroCliente"
+                    placeholder="Digite seu bairro"
+                >
+
+
+                <label>
+                    📝 Complemento
+                </label>
+
+                <input
+                    type="text"
+                    id="complementoCliente"
+                    placeholder="Ex: Casa azul, apto 2..."
+                >
 
             </div>
 
@@ -279,7 +342,7 @@ function abrirSistemaPedido() {
 
             <!-- ===============================
                  ADICIONAR
-            ================================ -->
+            =============================== -->
 
             <button
                 class="adicionar-pedido"
@@ -292,6 +355,35 @@ function abrirSistemaPedido() {
     `;
 
     document.body.appendChild(sistema);
+
+    mostrarEndereco();
+}
+
+
+// ===============================
+// MOSTRAR / ESCONDER ENDEREÇO
+// ===============================
+
+function mostrarEndereco() {
+
+    const tipo = document.querySelector(
+        'input[name="tipo"]:checked'
+    );
+
+    const dadosEntrega =
+        document.getElementById("dados-entrega");
+
+    if (!tipo || !dadosEntrega) return;
+
+    if (tipo.value === "Delivery") {
+
+        dadosEntrega.style.display = "block";
+
+    } else {
+
+        dadosEntrega.style.display = "none";
+
+    }
 }
 
 
@@ -301,7 +393,6 @@ function abrirSistemaPedido() {
 
 function selecionarPote(botao) {
 
-    // Remove a seleção de todos
     const botoes =
         document.querySelectorAll(".pote-opcao");
 
@@ -312,11 +403,9 @@ function selecionarPote(botao) {
     });
 
 
-    // Seleciona o botão clicado
     botao.classList.add("selecionado");
 
 
-    // Pega as informações
     const produto =
         botao.dataset.produto;
 
@@ -324,7 +413,6 @@ function selecionarPote(botao) {
         botao.dataset.preco;
 
 
-    // Salva no sistema
     document.getElementById("produto").value =
         produto;
 
@@ -380,6 +468,58 @@ function adicionarPedido() {
         );
 
         return;
+    }
+
+
+    // ===============================
+    // DADOS DO CLIENTE
+    // ===============================
+
+    const tipoSelecionado =
+        document.querySelector(
+            'input[name="tipo"]:checked'
+        ).value;
+
+
+    let nomeCliente = "";
+    let enderecoCliente = "";
+    let numeroCliente = "";
+    let bairroCliente = "";
+    let complementoCliente = "";
+
+
+    if (tipoSelecionado === "Delivery") {
+
+        nomeCliente =
+            document.getElementById("nomeCliente").value.trim();
+
+        enderecoCliente =
+            document.getElementById("enderecoCliente").value.trim();
+
+        numeroCliente =
+            document.getElementById("numeroCliente").value.trim();
+
+        bairroCliente =
+            document.getElementById("bairroCliente").value.trim();
+
+        complementoCliente =
+            document.getElementById("complementoCliente").value.trim();
+
+
+        if (
+            !nomeCliente ||
+            !enderecoCliente ||
+            !numeroCliente ||
+            !bairroCliente
+        ) {
+
+            alert(
+                "Preencha seu nome, endereço, número e bairro."
+            );
+
+            return;
+        }
+
     }
 
 
@@ -443,16 +583,6 @@ function adicionarPedido() {
 
 
     // ===============================
-    // TIPO
-    // ===============================
-
-    const tipoSelecionado =
-        document.querySelector(
-            'input[name="tipo"]:checked'
-        ).value;
-
-
-    // ===============================
     // CALCULAR
     // ===============================
 
@@ -486,6 +616,21 @@ function adicionarPedido() {
 
         tipo:
             tipoSelecionado,
+
+        nomeCliente:
+            nomeCliente,
+
+        enderecoCliente:
+            enderecoCliente,
+
+        numeroCliente:
+            numeroCliente,
+
+        bairroCliente:
+            bairroCliente,
+
+        complementoCliente:
+            complementoCliente,
 
         observacoes:
             observacoes,
@@ -656,13 +801,11 @@ function abrirNovoItem() {
     const sistema =
         document.getElementById("sistema-pedido");
 
-
     if (sistema) {
 
         sistema.remove();
 
     }
-
 
     abrirSistemaPedido();
 
@@ -787,6 +930,44 @@ function enviarWhatsApp(event) {
 
         }
     );
+
+
+    // ===============================
+    // DADOS DO CLIENTE
+    // ===============================
+
+    const primeiroPedido =
+        pedidos[0];
+
+
+    if (primeiroPedido.tipo === "Delivery") {
+
+        mensagem +=
+            "%0A━━━━━━━━━━━━━━━━━━%0A";
+
+        mensagem +=
+            "👤 *DADOS PARA ENTREGA*%0A";
+
+        mensagem +=
+            `Nome: ${primeiroPedido.nomeCliente}%0A`;
+
+        mensagem +=
+            `Endereço: ${primeiroPedido.enderecoCliente}%0A`;
+
+        mensagem +=
+            `Número: ${primeiroPedido.numeroCliente}%0A`;
+
+        mensagem +=
+            `Bairro: ${primeiroPedido.bairroCliente}%0A`;
+
+        if (primeiroPedido.complementoCliente) {
+
+            mensagem +=
+                `Complemento: ${primeiroPedido.complementoCliente}%0A`;
+
+        }
+
+    }
 
 
     mensagem +=
