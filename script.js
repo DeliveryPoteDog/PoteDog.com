@@ -29,30 +29,100 @@ function abrirSistemaPedido() {
             </p>
 
 
+            <!-- ===============================
+                 ESCOLHA DO POTE DOG
+            ================================ -->
+
             <label>
                 Escolha o Pote Dog
             </label>
 
-            <select id="produto">
+            <div class="potes-dog">
 
-                <option value="Pote Dog Tradicional" data-preco="29.90">
-                    Pote Dog Tradicional — R$ 29,90
-                </option>
+                <button
+                    type="button"
+                    class="pote-opcao selecionado"
+                    data-produto="Pote Dog Tradicional"
+                    data-preco="29.90"
+                    onclick="selecionarPote(this)"
+                >
+                    <span class="pote-emoji">🌭</span>
 
-                <option value="Pote Dog Bacon" data-preco="34.99">
-                    Pote Dog Bacon — R$ 34,99
-                </option>
+                    <span class="pote-info">
+                        <strong>Pote Dog Tradicional</strong>
+                        <small>R$ 29,90</small>
+                    </span>
+                </button>
 
-                <option value="Pote Dog Calabresa" data-preco="34.99">
-                    Pote Dog Calabresa — R$ 34,99
-                </option>
 
-                <option value="Big Pote Dog" data-preco="49.99">
-                    Big Pote Dog — R$ 49,99
-                </option>
+                <button
+                    type="button"
+                    class="pote-opcao"
+                    data-produto="Pote Dog Bacon"
+                    data-preco="34.99"
+                    onclick="selecionarPote(this)"
+                >
+                    <span class="pote-emoji">🥓</span>
 
-            </select>
+                    <span class="pote-info">
+                        <strong>Pote Dog Bacon</strong>
+                        <small>R$ 34,99</small>
+                    </span>
+                </button>
 
+
+                <button
+                    type="button"
+                    class="pote-opcao"
+                    data-produto="Pote Dog Calabresa"
+                    data-preco="34.99"
+                    onclick="selecionarPote(this)"
+                >
+                    <span class="pote-emoji">🌶️</span>
+
+                    <span class="pote-info">
+                        <strong>Pote Dog Calabresa</strong>
+                        <small>R$ 34,99</small>
+                    </span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="pote-opcao"
+                    data-produto="Big Pote Dog"
+                    data-preco="49.99"
+                    onclick="selecionarPote(this)"
+                >
+                    <span class="pote-emoji">🔥</span>
+
+                    <span class="pote-info">
+                        <strong>Big Pote Dog</strong>
+                        <small>R$ 49,99</small>
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- VALORES DO POTE SELECIONADO -->
+
+            <input
+                type="hidden"
+                id="produto"
+                value="Pote Dog Tradicional"
+            >
+
+            <input
+                type="hidden"
+                id="produtoPreco"
+                value="29.90"
+            >
+
+
+            <!-- ===============================
+                 QUANTIDADE
+            ================================ -->
 
             <label>
                 Quantidade
@@ -66,6 +136,10 @@ function abrirSistemaPedido() {
                 max="20"
             >
 
+
+            <!-- ===============================
+                 ADICIONAIS
+            ================================ -->
 
             <label>
                 Adicionais
@@ -115,30 +189,50 @@ function abrirSistemaPedido() {
             </div>
 
 
+            <!-- ===============================
+                 BEBIDA
+            ================================ -->
+
             <label>
                 Bebida
             </label>
 
             <select id="bebida">
 
-                <option value="Sem bebida" data-preco="0">
+                <option
+                    value="Sem bebida"
+                    data-preco="0"
+                >
                     Sem bebida
                 </option>
 
-                <option value="Coca-Cola 200ML" data-preco="3.50">
+                <option
+                    value="Coca-Cola 200ML"
+                    data-preco="3.50"
+                >
                     Coca-Cola 200ML — R$ 3,50
                 </option>
 
-                <option value="Coca-Cola Lata 220ML" data-preco="4">
+                <option
+                    value="Coca-Cola Lata 220ML"
+                    data-preco="4"
+                >
                     Coca-Cola Lata 220ML — R$ 4,00
                 </option>
 
-                <option value="Coca-Cola Lata 350ML" data-preco="6">
+                <option
+                    value="Coca-Cola Lata 350ML"
+                    data-preco="6"
+                >
                     Coca-Cola Lata 350ML — R$ 6,00
                 </option>
 
             </select>
 
+
+            <!-- ===============================
+                 TIPO DE PEDIDO
+            ================================ -->
 
             <label>
                 Tipo de pedido
@@ -169,6 +263,10 @@ function abrirSistemaPedido() {
             </div>
 
 
+            <!-- ===============================
+                 OBSERVAÇÕES
+            ================================ -->
+
             <label>
                 Observações
             </label>
@@ -178,6 +276,10 @@ function abrirSistemaPedido() {
                 placeholder="Ex: sem milho, pouco molho..."
             ></textarea>
 
+
+            <!-- ===============================
+                 ADICIONAR
+            ================================ -->
 
             <button
                 class="adicionar-pedido"
@@ -194,6 +296,45 @@ function abrirSistemaPedido() {
 
 
 // ===============================
+// SELECIONAR POTE DOG
+// ===============================
+
+function selecionarPote(botao) {
+
+    // Remove a seleção de todos
+    const botoes =
+        document.querySelectorAll(".pote-opcao");
+
+    botoes.forEach(function(item) {
+
+        item.classList.remove("selecionado");
+
+    });
+
+
+    // Seleciona o botão clicado
+    botao.classList.add("selecionado");
+
+
+    // Pega as informações
+    const produto =
+        botao.dataset.produto;
+
+    const preco =
+        botao.dataset.preco;
+
+
+    // Salva no sistema
+    document.getElementById("produto").value =
+        produto;
+
+    document.getElementById("produtoPreco").value =
+        preco;
+
+}
+
+
+// ===============================
 // FECHAR SISTEMA
 // ===============================
 
@@ -203,8 +344,11 @@ function fecharSistemaPedido() {
         document.getElementById("sistema-pedido");
 
     if (sistema) {
+
         sistema.remove();
+
     }
+
 }
 
 
@@ -218,7 +362,9 @@ function adicionarPedido() {
         document.getElementById("produto");
 
     const quantidade =
-        Number(document.getElementById("quantidade").value);
+        Number(
+            document.getElementById("quantidade").value
+        );
 
     const bebida =
         document.getElementById("bebida");
@@ -229,25 +375,35 @@ function adicionarPedido() {
 
     if (quantidade < 1) {
 
-        alert("Escolha uma quantidade válida.");
+        alert(
+            "Escolha uma quantidade válida."
+        );
 
         return;
     }
 
 
+    // ===============================
+    // PRODUTO
+    // ===============================
+
     const produtoNome =
         produto.value;
 
+
     const produtoPreco =
         Number(
-            produto.options[
-                produto.selectedIndex
-            ].dataset.preco
+            document.getElementById("produtoPreco").value
         );
 
 
+    // ===============================
+    // BEBIDA
+    // ===============================
+
     const bebidaNome =
         bebida.value;
+
 
     const bebidaPreco =
         Number(
@@ -257,7 +413,9 @@ function adicionarPedido() {
         );
 
 
-    // PEGAR ADICIONAIS
+    // ===============================
+    // ADICIONAIS
+    // ===============================
 
     const adicionaisSelecionados =
         document.querySelectorAll(
@@ -273,7 +431,9 @@ function adicionarPedido() {
     adicionaisSelecionados.forEach(
         function(item) {
 
-            adicionais.push(item.value);
+            adicionais.push(
+                item.value
+            );
 
             precoAdicionais +=
                 Number(item.dataset.preco);
@@ -282,11 +442,19 @@ function adicionarPedido() {
     );
 
 
+    // ===============================
+    // TIPO
+    // ===============================
+
     const tipoSelecionado =
         document.querySelector(
             'input[name="tipo"]:checked'
         ).value;
 
+
+    // ===============================
+    // CALCULAR
+    // ===============================
 
     const valorUnitario =
         produtoPreco +
@@ -298,21 +466,32 @@ function adicionarPedido() {
         valorUnitario * quantidade;
 
 
+    // ===============================
+    // SALVAR PEDIDO
+    // ===============================
+
     pedidos.push({
 
-        produto: produtoNome,
+        produto:
+            produtoNome,
 
-        quantidade: quantidade,
+        quantidade:
+            quantidade,
 
-        adicionais: adicionais,
+        adicionais:
+            adicionais,
 
-        bebida: bebidaNome,
+        bebida:
+            bebidaNome,
 
-        tipo: tipoSelecionado,
+        tipo:
+            tipoSelecionado,
 
-        observacoes: observacoes,
+        observacoes:
+            observacoes,
 
-        subtotal: subtotal
+        subtotal:
+            subtotal
 
     });
 
@@ -340,7 +519,8 @@ function mostrarResumo() {
     pedidos.forEach(
         function(pedido, index) {
 
-            total += pedido.subtotal;
+            total +=
+                pedido.subtotal;
 
 
             texto += `
@@ -393,6 +573,7 @@ function mostrarResumo() {
                 </div>
 
             `;
+
         }
     );
 
@@ -475,7 +656,13 @@ function abrirNovoItem() {
     const sistema =
         document.getElementById("sistema-pedido");
 
-    sistema.remove();
+
+    if (sistema) {
+
+        sistema.remove();
+
+    }
+
 
     abrirSistemaPedido();
 
@@ -516,7 +703,9 @@ function enviarWhatsApp(event) {
 
     if (pedidos.length === 0) {
 
-        alert("Seu pedido está vazio.");
+        alert(
+            "Seu pedido está vazio."
+        );
 
         return;
     }
@@ -524,6 +713,7 @@ function enviarWhatsApp(event) {
 
     let mensagem =
         "🌭 *NOVO PEDIDO - DELIVERY POTE DOG*%0A";
+
 
     mensagem +=
         "━━━━━━━━━━━━━━━━━━%0A";
@@ -535,15 +725,19 @@ function enviarWhatsApp(event) {
     pedidos.forEach(
         function(pedido, index) {
 
-            total += pedido.subtotal;
+            total +=
+                pedido.subtotal;
 
 
             mensagem +=
                 `%0A*ITEM ${index + 1}*%0A`;
 
+
             mensagem +=
                 `${pedido.quantidade}x ${pedido.produto}%0A`;
 
+
+            // ADICIONAIS
 
             if (
                 pedido.adicionais.length > 0
@@ -560,21 +754,31 @@ function enviarWhatsApp(event) {
             }
 
 
+            // BEBIDA
+
             mensagem +=
                 `Bebida: ${pedido.bebida}%0A`;
 
+
+            // TIPO
 
             mensagem +=
                 `Tipo: ${pedido.tipo}%0A`;
 
 
-            if (pedido.observacoes) {
+            // OBSERVAÇÃO
+
+            if (
+                pedido.observacoes
+            ) {
 
                 mensagem +=
                     `Observação: ${pedido.observacoes}%0A`;
 
             }
 
+
+            // SUBTOTAL
 
             mensagem +=
                 `Subtotal: R$ ${pedido.subtotal
@@ -602,6 +806,10 @@ function enviarWhatsApp(event) {
     mensagem +=
         "📍 Delivery Pote Dog";
 
+
+    // ===============================
+    // NÚMERO DO WHATSAPP
+    // ===============================
 
     const numero =
         "5544997655536";
