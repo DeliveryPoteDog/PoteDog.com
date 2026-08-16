@@ -636,7 +636,7 @@ footer p {
 
 
 /* =========================
-   ADICIONAIS E TIPO
+   ADICIONAIS
 ========================= */
 
 .opcoes-pedido,
@@ -732,7 +732,7 @@ footer p {
 
 
 /* =========================
-   TABLET / CELULAR
+   TABLET
 ========================= */
 
 @media (max-width: 850px) {
@@ -781,13 +781,29 @@ footer p {
         font-size: 27px;
     }
 
+
+    /* =========================
+       SISTEMA MAIS PARA BAIXO
+    ========================= */
+
+    #sistema-pedido {
+        align-items: flex-start;
+        padding-top: 70px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 30px;
+    }
+
     .pedido-box {
         padding: 25px 18px;
-        max-height: 95vh;
+        max-height: 88vh;
         overflow-y: auto;
     }
 
-    /* POTES NO CELULAR */
+
+    /* =========================
+       POTES NO CELULAR
+    ========================= */
 
     .potes-dog {
         grid-template-columns: 1fr;
@@ -811,14 +827,20 @@ footer p {
         font-size: 14px;
     }
 
-    /* ADICIONAIS */
+
+    /* =========================
+       ADICIONAIS
+    ========================= */
 
     .opcoes-pedido,
     .tipo-pedido {
         grid-template-columns: 1fr;
     }
 
-    /* BADGES */
+
+    /* =========================
+       BADGES
+    ========================= */
 
     .badges {
         flex-direction: column;
