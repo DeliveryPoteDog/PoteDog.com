@@ -890,3 +890,29 @@ footer p {
         font-size: 13px;
     }
 }
+/* MARCA D'ÁGUA */
+.marca-agua {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.12);
+    
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+    
+    white-space: nowrap;
+    letter-spacing: 15px;
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+    .marca-agua {
+        font-size: 80px;
+        letter-spacing: 8px;
+    }
+}
