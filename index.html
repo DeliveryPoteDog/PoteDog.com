@@ -22,7 +22,8 @@
 
             font-size: 180px;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.12);
+
+            color: rgba(0, 255, 80, 0.28);
 
             z-index: 9999;
             pointer-events: none;
@@ -30,6 +31,9 @@
 
             white-space: nowrap;
             letter-spacing: 15px;
+
+            text-shadow:
+                0 0 15px rgba(0, 255, 80, 0.15);
         }
 
         @media (max-width: 600px) {
@@ -83,7 +87,6 @@
 
                 </div>
 
-                <!-- ÚNICO BOTÃO DE PEDIDO -->
                 <button
                     class="botao-pedido botao-topo"
                     onclick="abrirSistemaPedido()"
