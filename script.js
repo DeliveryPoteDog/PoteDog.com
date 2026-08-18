@@ -30,10 +30,12 @@ function abrirSistemaPedido() {
 
 
             <!-- ==================================================
-                 POTE DOG
+                 ESCOLHA DO POTE DOG
             ================================================== -->
 
-            <label>Escolha o Pote Dog</label>
+            <label>
+                Escolha o Pote Dog
+            </label>
 
             <div class="potes-dog">
 
@@ -120,7 +122,9 @@ function abrirSistemaPedido() {
                  QUANTIDADE
             ================================================== -->
 
-            <label>Quantidade</label>
+            <label>
+                Quantidade
+            </label>
 
             <input
                 type="number"
@@ -135,7 +139,9 @@ function abrirSistemaPedido() {
                  ADICIONAIS
             ================================================== -->
 
-            <label>Adicionais</label>
+            <label>
+                Adicionais
+            </label>
 
             <div class="opcoes-pedido">
 
@@ -182,7 +188,9 @@ function abrirSistemaPedido() {
                  BEBIDA
             ================================================== -->
 
-            <label>Bebida</label>
+            <label>
+                Bebida
+            </label>
 
             <select id="bebida">
 
@@ -221,7 +229,9 @@ function abrirSistemaPedido() {
                  TIPO DE PEDIDO
             ================================================== -->
 
-            <label>Tipo de pedido</label>
+            <label>
+                Tipo de pedido
+            </label>
 
             <div class="tipo-pedido">
 
@@ -235,6 +245,7 @@ function abrirSistemaPedido() {
                     >
                     🛵 Delivery
                 </label>
+
 
                 <label>
                     <input
@@ -255,7 +266,9 @@ function abrirSistemaPedido() {
 
             <div id="dados-entrega">
 
-                <label>👤 Nome</label>
+                <label>
+                    👤 Nome
+                </label>
 
                 <input
                     type="text"
@@ -266,7 +279,9 @@ function abrirSistemaPedido() {
 
                 <div id="campos-delivery">
 
-                    <label>🏠 Endereço</label>
+                    <label>
+                        🏠 Endereço
+                    </label>
 
                     <input
                         type="text"
@@ -274,7 +289,10 @@ function abrirSistemaPedido() {
                         placeholder="Rua / Avenida"
                     >
 
-                    <label>🔢 Número</label>
+
+                    <label>
+                        🔢 Número
+                    </label>
 
                     <input
                         type="text"
@@ -282,7 +300,10 @@ function abrirSistemaPedido() {
                         placeholder="Número da casa"
                     >
 
-                    <label>📌 Bairro</label>
+
+                    <label>
+                        📌 Bairro
+                    </label>
 
                     <input
                         type="text"
@@ -290,7 +311,10 @@ function abrirSistemaPedido() {
                         placeholder="Digite seu bairro"
                     >
 
-                    <label>📝 Complemento</label>
+
+                    <label>
+                        📝 Complemento
+                    </label>
 
                     <input
                         type="text"
@@ -321,13 +345,13 @@ function abrirSistemaPedido() {
                 "
             >
 
-                📍 <strong>RETIRADA</strong>
+                🛍️ <strong>RETIRADA</strong>
 
                 <br><br>
 
-                Após enviar o pedido, envie sua
-                <strong>localização pelo WhatsApp</strong>
-                para facilitar a retirada.
+                Após enviar o pedido,
+                <strong>o Pote Dog enviará pelo WhatsApp
+                a localização do local de retirada.</strong>
 
             </div>
 
@@ -365,7 +389,7 @@ function abrirSistemaPedido() {
 
 
             <!-- ==================================================
-                 AVISO PIX
+                 PIX
             ================================================== -->
 
             <div
@@ -403,12 +427,16 @@ function abrirSistemaPedido() {
 
             <div
                 id="campo-dinheiro"
-                style="display:none; margin-top:15px;"
+                style="
+                    display:none;
+                    margin-top:15px;
+                "
             >
 
                 <label>
                     💵 Precisa de troco?
                 </label>
+
 
                 <div
                     class="tipo-pedido"
@@ -425,6 +453,7 @@ function abrirSistemaPedido() {
                         >
                         Não
                     </label>
+
 
                     <label>
                         <input
@@ -465,7 +494,9 @@ function abrirSistemaPedido() {
                  OBSERVAÇÕES
             ================================================== -->
 
-            <label>Observações</label>
+            <label>
+                Observações
+            </label>
 
             <textarea
                 id="observacoes"
@@ -547,22 +578,16 @@ function mostrarPagamento() {
     if (!forma) return;
 
 
-    // Esconde tudo primeiro
-
     avisoPix.style.display = "none";
 
     campoDinheiro.style.display = "none";
 
-
-    // PIX
 
     if (forma.value === "Pix") {
 
         avisoPix.style.display = "block";
     }
 
-
-    // DINHEIRO
 
     if (forma.value === "Dinheiro") {
 
@@ -631,7 +656,7 @@ function selecionarPote(botao) {
 
 
 // ======================================================
-// FECHAR
+// FECHAR SISTEMA
 // ======================================================
 
 function fecharSistemaPedido() {
@@ -687,7 +712,9 @@ function adicionarPedido() {
     }
 
 
+    // ==================================================
     // DELIVERY
+    // ==================================================
 
     let endereco = "";
     let numero = "";
@@ -703,17 +730,20 @@ function adicionarPedido() {
                 .value
                 .trim();
 
+
         numero =
             document
                 .getElementById("numeroCliente")
                 .value
                 .trim();
 
+
         bairro =
             document
                 .getElementById("bairroCliente")
                 .value
                 .trim();
+
 
         complemento =
             document
@@ -737,7 +767,9 @@ function adicionarPedido() {
     }
 
 
+    // ==================================================
     // PAGAMENTO
+    // ==================================================
 
     const formaPagamento =
         document.getElementById("formaPagamento").value;
@@ -796,7 +828,9 @@ function adicionarPedido() {
     }
 
 
+    // ==================================================
     // PRODUTO
+    // ==================================================
 
     const produto =
         document.getElementById("produto").value;
@@ -808,7 +842,9 @@ function adicionarPedido() {
         );
 
 
+    // ==================================================
     // BEBIDA
+    // ==================================================
 
     const bebida =
         document.getElementById("bebida");
@@ -826,7 +862,9 @@ function adicionarPedido() {
         );
 
 
+    // ==================================================
     // ADICIONAIS
+    // ==================================================
 
     const selecionados =
         document.querySelectorAll(
@@ -835,6 +873,7 @@ function adicionarPedido() {
 
 
     let adicionais = [];
+
     let precoAdicionais = 0;
 
 
@@ -848,7 +887,9 @@ function adicionarPedido() {
     });
 
 
-    // TOTAL DO ITEM
+    // ==================================================
+    // CALCULAR
+    // ==================================================
 
     const valorUnitario =
         precoProduto +
@@ -860,7 +901,9 @@ function adicionarPedido() {
         valorUnitario * quantidade;
 
 
+    // ==================================================
     // OBSERVAÇÕES
+    // ==================================================
 
     const observacoes =
         document
@@ -869,7 +912,9 @@ function adicionarPedido() {
             .trim();
 
 
-    // SALVAR
+    // ==================================================
+    // SALVAR PEDIDO
+    // ==================================================
 
     pedidos.push({
 
@@ -902,6 +947,7 @@ function adicionarPedido() {
         observacoes: observacoes,
 
         subtotal: subtotal
+
     });
 
 
@@ -910,7 +956,7 @@ function adicionarPedido() {
 
 
 // ======================================================
-// RESUMO
+// MOSTRAR RESUMO
 // ======================================================
 
 function mostrarResumo() {
@@ -990,7 +1036,7 @@ function mostrarResumo() {
                     ?
                     `
                     <br>
-                    💚 Chave Pix será enviada pelo WhatsApp.
+                    💚 A chave Pix será enviada pelo WhatsApp.
                     <br>
                     📎 Enviar comprovante pelo WhatsApp.
                     `
@@ -1003,7 +1049,8 @@ function mostrarResumo() {
                     ?
                     `
                     <br>
-                    📍 Enviar localização pelo WhatsApp.
+                    📍 O Pote Dog enviará a localização
+                    do local de retirada pelo WhatsApp.
                     `
                     :
                     ""
@@ -1099,6 +1146,7 @@ function mostrarResumo() {
             </button>
 
         </div>
+
     `;
 }
 
@@ -1124,7 +1172,7 @@ function abrirNovoItem() {
 
 
 // ======================================================
-// CANCELAR
+// CANCELAR PEDIDO
 // ======================================================
 
 function cancelarPedido() {
@@ -1145,7 +1193,7 @@ function cancelarPedido() {
 
 
 // ======================================================
-// WHATSAPP
+// ENVIAR WHATSAPP
 // ======================================================
 
 function enviarWhatsApp(event) {
@@ -1155,7 +1203,9 @@ function enviarWhatsApp(event) {
 
     if (pedidos.length === 0) {
 
-        alert("Seu pedido está vazio.");
+        alert(
+            "Seu pedido está vazio."
+        );
 
         return;
     }
@@ -1216,66 +1266,89 @@ function enviarWhatsApp(event) {
             `Subtotal: R$ ${pedido.subtotal
                 .toFixed(2)
                 .replace(".", ",")}%0A`;
+
     });
 
+
+    // ==================================================
+    // DADOS DO CLIENTE
+    // ==================================================
 
     const primeiro =
         pedidos[0];
 
 
-    // CLIENTE
-
     mensagem +=
         "%0A━━━━━━━━━━━━━━━━━━%0A";
 
+
     mensagem +=
         "👤 *DADOS DO CLIENTE*%0A";
+
 
     mensagem +=
         `Nome: ${primeiro.nomeCliente}%0A`;
 
 
+    // ==================================================
     // DELIVERY
+    // ==================================================
 
-    if (primeiro.tipo === "Delivery") {
+    if (
+        primeiro.tipo === "Delivery"
+    ) {
 
         mensagem +=
             "🛵 *DELIVERY*%0A";
 
+
         mensagem +=
             `Endereço: ${primeiro.enderecoCliente}%0A`;
 
+
         mensagem +=
             `Número: ${primeiro.numeroCliente}%0A`;
+
 
         mensagem +=
             `Bairro: ${primeiro.bairroCliente}%0A`;
 
 
-        if (primeiro.complementoCliente) {
+        if (
+            primeiro.complementoCliente
+        ) {
 
             mensagem +=
                 `Complemento: ${primeiro.complementoCliente}%0A`;
         }
+
     }
 
 
+    // ==================================================
     // RETIRADA
+    // ==================================================
 
-    if (primeiro.tipo === "Retirada") {
+    if (
+        primeiro.tipo === "Retirada"
+    ) {
 
         mensagem +=
             "🛍️ *RETIRADA*%0A";
 
+
         mensagem +=
-            "📍 Cliente enviará a localização pelo WhatsApp.%0A";
+            "📍 O Pote Dog enviará a localização do local de retirada pelo WhatsApp.%0A";
     }
 
 
+    // ==================================================
     // PAGAMENTO
+    // ==================================================
 
     mensagem +=
         "%0A💳 *FORMA DE PAGAMENTO*%0A";
+
 
     mensagem +=
         `Pagamento: ${primeiro.formaPagamento}%0A`;
@@ -1315,6 +1388,7 @@ function enviarWhatsApp(event) {
         mensagem +=
             "💚 Enviar a chave Pix pelo WhatsApp.%0A";
 
+
         mensagem +=
             "📎 Cliente enviará o comprovante pelo WhatsApp.%0A";
     }
@@ -1331,24 +1405,31 @@ function enviarWhatsApp(event) {
     }
 
 
+    // ==================================================
     // TOTAL
+    // ==================================================
 
     mensagem +=
         "%0A━━━━━━━━━━━━━━━━━━%0A";
+
 
     mensagem +=
         `💰 *TOTAL: R$ ${total
             .toFixed(2)
             .replace(".", ",")}*%0A`;
 
+
     mensagem +=
         "━━━━━━━━━━━━━━━━━━%0A";
+
 
     mensagem +=
         "📍 Delivery Pote Dog";
 
 
+    // ==================================================
     // WHATSAPP
+    // ==================================================
 
     const numero =
         "5544997655536";
