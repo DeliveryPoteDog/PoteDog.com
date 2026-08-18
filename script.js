@@ -29,9 +29,7 @@ function abrirSistemaPedido() {
             </p>
 
 
-            <!-- ==================================================
-                 ESCOLHA DO POTE DOG
-            ================================================== -->
+            <!-- POTE DOG -->
 
             <label>
                 Escolha o Pote Dog
@@ -118,9 +116,7 @@ function abrirSistemaPedido() {
             >
 
 
-            <!-- ==================================================
-                 QUANTIDADE
-            ================================================== -->
+            <!-- QUANTIDADE -->
 
             <label>
                 Quantidade
@@ -135,9 +131,7 @@ function abrirSistemaPedido() {
             >
 
 
-            <!-- ==================================================
-                 ADICIONAIS
-            ================================================== -->
+            <!-- ADICIONAIS -->
 
             <label>
                 Adicionais
@@ -184,9 +178,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ==================================================
-                 BEBIDA
-            ================================================== -->
+            <!-- BEBIDA -->
 
             <label>
                 Bebida
@@ -225,9 +217,7 @@ function abrirSistemaPedido() {
             </select>
 
 
-            <!-- ==================================================
-                 TIPO DE PEDIDO
-            ================================================== -->
+            <!-- TIPO DO PEDIDO -->
 
             <label>
                 Tipo de pedido
@@ -260,9 +250,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ==================================================
-                 DADOS DO CLIENTE
-            ================================================== -->
+            <!-- DADOS DO CLIENTE -->
 
             <div id="dados-entrega">
 
@@ -327,9 +315,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ==================================================
-                 AVISO RETIRADA
-            ================================================== -->
+            <!-- AVISO DE RETIRADA -->
 
             <div
                 id="aviso-retirada"
@@ -350,15 +336,15 @@ function abrirSistemaPedido() {
                 <br><br>
 
                 Após enviar o pedido,
-                <strong>o Pote Dog enviará pelo WhatsApp
-                a localização do local de retirada.</strong>
+                <strong>
+                    a Pote Dog enviará pelo WhatsApp
+                    a localização do local de retirada.
+                </strong>
 
             </div>
 
 
-            <!-- ==================================================
-                 FORMA DE PAGAMENTO
-            ================================================== -->
+            <!-- FORMA DE PAGAMENTO -->
 
             <label style="margin-top:20px;">
                 💳 Forma de pagamento
@@ -388,9 +374,7 @@ function abrirSistemaPedido() {
             </select>
 
 
-            <!-- ==================================================
-                 PIX
-            ================================================== -->
+            <!-- PIX -->
 
             <div
                 id="aviso-pix"
@@ -421,9 +405,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ==================================================
-                 DINHEIRO
-            ================================================== -->
+            <!-- DINHEIRO -->
 
             <div
                 id="campo-dinheiro"
@@ -490,9 +472,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ==================================================
-                 OBSERVAÇÕES
-            ================================================== -->
+            <!-- OBSERVAÇÕES -->
 
             <label>
                 Observações
@@ -504,9 +484,7 @@ function abrirSistemaPedido() {
             ></textarea>
 
 
-            <!-- ==================================================
-                 BOTÃO
-            ================================================== -->
+            <!-- BOTÃO -->
 
             <button
                 class="adicionar-pedido"
@@ -623,7 +601,12 @@ function mostrarTroco() {
 
         campo.style.display = "none";
 
-        document.getElementById("valorTroco").value = "";
+        const valor =
+            document.getElementById("valorTroco");
+
+        if (valor) {
+            valor.value = "";
+        }
     }
 }
 
@@ -656,7 +639,7 @@ function selecionarPote(botao) {
 
 
 // ======================================================
-// FECHAR SISTEMA
+// FECHAR
 // ======================================================
 
 function fecharSistemaPedido() {
@@ -712,9 +695,7 @@ function adicionarPedido() {
     }
 
 
-    // ==================================================
-    // DELIVERY
-    // ==================================================
+    // DADOS DO DELIVERY
 
     let endereco = "";
     let numero = "";
@@ -767,9 +748,7 @@ function adicionarPedido() {
     }
 
 
-    // ==================================================
     // PAGAMENTO
-    // ==================================================
 
     const formaPagamento =
         document.getElementById("formaPagamento").value;
@@ -828,9 +807,7 @@ function adicionarPedido() {
     }
 
 
-    // ==================================================
     // PRODUTO
-    // ==================================================
 
     const produto =
         document.getElementById("produto").value;
@@ -842,9 +819,7 @@ function adicionarPedido() {
         );
 
 
-    // ==================================================
     // BEBIDA
-    // ==================================================
 
     const bebida =
         document.getElementById("bebida");
@@ -862,9 +837,7 @@ function adicionarPedido() {
         );
 
 
-    // ==================================================
     // ADICIONAIS
-    // ==================================================
 
     const selecionados =
         document.querySelectorAll(
@@ -887,9 +860,7 @@ function adicionarPedido() {
     });
 
 
-    // ==================================================
-    // CALCULAR
-    // ==================================================
+    // TOTAL
 
     const valorUnitario =
         precoProduto +
@@ -901,9 +872,7 @@ function adicionarPedido() {
         valorUnitario * quantidade;
 
 
-    // ==================================================
     // OBSERVAÇÕES
-    // ==================================================
 
     const observacoes =
         document
@@ -912,9 +881,7 @@ function adicionarPedido() {
             .trim();
 
 
-    // ==================================================
     // SALVAR PEDIDO
-    // ==================================================
 
     pedidos.push({
 
@@ -956,7 +923,7 @@ function adicionarPedido() {
 
 
 // ======================================================
-// MOSTRAR RESUMO
+// RESUMO
 // ======================================================
 
 function mostrarResumo() {
@@ -1038,7 +1005,7 @@ function mostrarResumo() {
                     <br>
                     💚 A chave Pix será enviada pelo WhatsApp.
                     <br>
-                    📎 Enviar comprovante pelo WhatsApp.
+                    📎 Cliente deverá enviar o comprovante pelo WhatsApp.
                     `
                     :
                     ""
@@ -1049,8 +1016,10 @@ function mostrarResumo() {
                     ?
                     `
                     <br>
-                    📍 O Pote Dog enviará a localização
+                    📍 <strong>
+                    A Pote Dog enviará a localização
                     do local de retirada pelo WhatsApp.
+                    </strong>
                     `
                     :
                     ""
@@ -1172,7 +1141,7 @@ function abrirNovoItem() {
 
 
 // ======================================================
-// CANCELAR PEDIDO
+// CANCELAR
 // ======================================================
 
 function cancelarPedido() {
@@ -1193,7 +1162,7 @@ function cancelarPedido() {
 
 
 // ======================================================
-// ENVIAR WHATSAPP
+// WHATSAPP
 // ======================================================
 
 function enviarWhatsApp(event) {
@@ -1203,9 +1172,7 @@ function enviarWhatsApp(event) {
 
     if (pedidos.length === 0) {
 
-        alert(
-            "Seu pedido está vazio."
-        );
+        alert("Seu pedido está vazio.");
 
         return;
     }
@@ -1270,9 +1237,7 @@ function enviarWhatsApp(event) {
     });
 
 
-    // ==================================================
     // DADOS DO CLIENTE
-    // ==================================================
 
     const primeiro =
         pedidos[0];
@@ -1290,9 +1255,7 @@ function enviarWhatsApp(event) {
         `Nome: ${primeiro.nomeCliente}%0A`;
 
 
-    // ==================================================
     // DELIVERY
-    // ==================================================
 
     if (
         primeiro.tipo === "Delivery"
@@ -1325,9 +1288,7 @@ function enviarWhatsApp(event) {
     }
 
 
-    // ==================================================
     // RETIRADA
-    // ==================================================
 
     if (
         primeiro.tipo === "Retirada"
@@ -1338,13 +1299,11 @@ function enviarWhatsApp(event) {
 
 
         mensagem +=
-            "📍 O Pote Dog enviará a localização do local de retirada pelo WhatsApp.%0A";
+            "📍 *A Pote Dog enviará a localização do local de retirada pelo WhatsApp.*%0A";
     }
 
 
-    // ==================================================
     // PAGAMENTO
-    // ==================================================
 
     mensagem +=
         "%0A💳 *FORMA DE PAGAMENTO*%0A";
@@ -1386,11 +1345,11 @@ function enviarWhatsApp(event) {
     ) {
 
         mensagem +=
-            "💚 Enviar a chave Pix pelo WhatsApp.%0A";
+            "💚 A chave Pix será enviada pelo WhatsApp.%0A";
 
 
         mensagem +=
-            "📎 Cliente enviará o comprovante pelo WhatsApp.%0A";
+            "📎 O cliente deverá enviar o comprovante pelo WhatsApp.%0A";
     }
 
 
@@ -1405,9 +1364,7 @@ function enviarWhatsApp(event) {
     }
 
 
-    // ==================================================
     // TOTAL
-    // ==================================================
 
     mensagem +=
         "%0A━━━━━━━━━━━━━━━━━━%0A";
@@ -1424,12 +1381,10 @@ function enviarWhatsApp(event) {
 
 
     mensagem +=
-        "📍 Delivery Pote Dog";
+        "🌭 Delivery Pote Dog";
 
 
-    // ==================================================
     // WHATSAPP
-    // ==================================================
 
     const numero =
         "5544997655536";
