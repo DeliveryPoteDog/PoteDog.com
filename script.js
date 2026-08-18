@@ -29,9 +29,7 @@ function abrirSistemaPedido() {
             </p>
 
 
-            <!-- ===============================
-                 ESCOLHA DO POTE DOG
-            ================================ -->
+            <!-- POTE DOG -->
 
             <label>
                 Escolha o Pote Dog
@@ -118,9 +116,7 @@ function abrirSistemaPedido() {
             >
 
 
-            <!-- ===============================
-                 QUANTIDADE
-            ================================ -->
+            <!-- QUANTIDADE -->
 
             <label>
                 Quantidade
@@ -135,9 +131,7 @@ function abrirSistemaPedido() {
             >
 
 
-            <!-- ===============================
-                 ADICIONAIS
-            ================================ -->
+            <!-- ADICIONAIS -->
 
             <label>
                 Adicionais
@@ -154,7 +148,6 @@ function abrirSistemaPedido() {
                     🧀 Cheddar + R$ 4,00
                 </label>
 
-
                 <label>
                     <input
                         type="checkbox"
@@ -164,7 +157,6 @@ function abrirSistemaPedido() {
                     🥫 Catupiry + R$ 4,00
                 </label>
 
-
                 <label>
                     <input
                         type="checkbox"
@@ -173,7 +165,6 @@ function abrirSistemaPedido() {
                     >
                     🥓 Bacon + R$ 4,00
                 </label>
-
 
                 <label>
                     <input
@@ -187,9 +178,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ===============================
-                 BEBIDA
-            ================================ -->
+            <!-- BEBIDA -->
 
             <label>
                 Bebida
@@ -228,9 +217,7 @@ function abrirSistemaPedido() {
             </select>
 
 
-            <!-- ===============================
-                 TIPO DE PEDIDO
-            ================================ -->
+            <!-- TIPO DE PEDIDO -->
 
             <label>
                 Tipo de pedido
@@ -263,9 +250,7 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ===============================
-                 DADOS DO CLIENTE
-            ================================ -->
+            <!-- DADOS DO CLIENTE -->
 
             <div id="dados-entrega">
 
@@ -279,7 +264,6 @@ function abrirSistemaPedido() {
                     placeholder="Digite seu nome"
                 >
 
-
                 <label>
                     🏠 Endereço
                 </label>
@@ -289,7 +273,6 @@ function abrirSistemaPedido() {
                     id="enderecoCliente"
                     placeholder="Rua / Avenida"
                 >
-
 
                 <label>
                     🔢 Número
@@ -301,7 +284,6 @@ function abrirSistemaPedido() {
                     placeholder="Número da casa"
                 >
 
-
                 <label>
                     📌 Bairro
                 </label>
@@ -311,7 +293,6 @@ function abrirSistemaPedido() {
                     id="bairroCliente"
                     placeholder="Digite seu bairro"
                 >
-
 
                 <label>
                     📝 Complemento
@@ -326,9 +307,134 @@ function abrirSistemaPedido() {
             </div>
 
 
-            <!-- ===============================
-                 OBSERVAÇÕES
-            ================================ -->
+            <!-- AVISO RETIRADA -->
+
+            <div
+                id="aviso-retirada"
+                style="
+                    display:none;
+                    background:#e8ffe8;
+                    border:1px solid #39b54a;
+                    padding:12px;
+                    border-radius:10px;
+                    margin:12px 0;
+                "
+            >
+                📍 <strong>Retirada:</strong><br>
+                Depois de enviar o pedido, envie sua localização pelo WhatsApp
+                para facilitar a retirada.
+            </div>
+
+
+            <!-- PAGAMENTO -->
+
+            <label>
+                💳 Forma de pagamento
+            </label>
+
+            <select
+                id="formaPagamento"
+                onchange="mostrarPagamento()"
+            >
+
+                <option value="">
+                    Selecione uma forma de pagamento
+                </option>
+
+                <option value="Pix">
+                    💚 Pix
+                </option>
+
+                <option value="Dinheiro">
+                    💵 Dinheiro
+                </option>
+
+                <option value="Cartão">
+                    💳 Cartão
+                </option>
+
+            </select>
+
+
+            <!-- PIX -->
+
+            <div
+                id="aviso-pix"
+                style="
+                    display:none;
+                    background:#e8ffe8;
+                    border:1px solid #39b54a;
+                    padding:12px;
+                    border-radius:10px;
+                    margin:12px 0;
+                "
+            >
+                💚 <strong>Pagamento via Pix</strong><br><br>
+
+                A chave Pix será enviada pelo WhatsApp após o pedido.
+                <br><br>
+                Depois de realizar o pagamento,
+                envie o <strong>comprovante pelo WhatsApp</strong>.
+            </div>
+
+
+            <!-- DINHEIRO -->
+
+            <div id="campo-dinheiro" style="display:none;">
+
+                <label>
+                    💵 Precisa de troco?
+                </label>
+
+                <div class="tipo-pedido">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="troco"
+                            value="Não"
+                            checked
+                            onchange="mostrarTroco()"
+                        >
+                        Não
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="troco"
+                            value="Sim"
+                            onchange="mostrarTroco()"
+                        >
+                        Sim
+                    </label>
+
+                </div>
+
+
+                <div
+                    id="campo-valor-troco"
+                    style="display:none;"
+                >
+
+                    <label>
+                        💰 Troco para quanto?
+                    </label>
+
+                    <input
+                        type="number"
+                        id="valorTroco"
+                        min="0"
+                        step="0.01"
+                        placeholder="Ex: 50,00"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- OBSERVAÇÕES -->
 
             <label>
                 Observações
@@ -340,9 +446,7 @@ function abrirSistemaPedido() {
             ></textarea>
 
 
-            <!-- ===============================
-                 ADICIONAR
-            =============================== -->
+            <!-- ADICIONAR -->
 
             <button
                 class="adicionar-pedido"
@@ -357,11 +461,12 @@ function abrirSistemaPedido() {
     document.body.appendChild(sistema);
 
     mostrarEndereco();
+    mostrarPagamento();
 }
 
 
 // ===============================
-// MOSTRAR / ESCONDER ENDEREÇO
+// MOSTRAR ENDEREÇO / RETIRADA
 // ===============================
 
 function mostrarEndereco() {
@@ -373,17 +478,88 @@ function mostrarEndereco() {
     const dadosEntrega =
         document.getElementById("dados-entrega");
 
+    const avisoRetirada =
+        document.getElementById("aviso-retirada");
+
     if (!tipo || !dadosEntrega) return;
 
     if (tipo.value === "Delivery") {
 
         dadosEntrega.style.display = "block";
 
+        if (avisoRetirada) {
+            avisoRetirada.style.display = "none";
+        }
+
     } else {
 
-        dadosEntrega.style.display = "none";
+        dadosEntrega.style.display = "block";
 
+        if (avisoRetirada) {
+            avisoRetirada.style.display = "block";
+        }
+
+        document.getElementById("enderecoCliente").placeholder =
+            "Endereço opcional para retirada";
+
+        document.getElementById("numeroCliente").placeholder =
+            "Número opcional";
+
+        document.getElementById("bairroCliente").placeholder =
+            "Bairro opcional";
     }
+}
+
+
+// ===============================
+// PAGAMENTO
+// ===============================
+
+function mostrarPagamento() {
+
+    const forma =
+        document.getElementById("formaPagamento");
+
+    const avisoPix =
+        document.getElementById("aviso-pix");
+
+    const campoDinheiro =
+        document.getElementById("campo-dinheiro");
+
+    if (!forma) return;
+
+    if (avisoPix) {
+        avisoPix.style.display =
+            forma.value === "Pix" ? "block" : "none";
+    }
+
+    if (campoDinheiro) {
+        campoDinheiro.style.display =
+            forma.value === "Dinheiro" ? "block" : "none";
+    }
+}
+
+
+// ===============================
+// MOSTRAR TROCO
+// ===============================
+
+function mostrarTroco() {
+
+    const troco =
+        document.querySelector(
+            'input[name="troco"]:checked'
+        );
+
+    const campo =
+        document.getElementById("campo-valor-troco");
+
+    if (!troco || !campo) return;
+
+    campo.style.display =
+        troco.value === "Sim"
+            ? "block"
+            : "none";
 }
 
 
@@ -397,14 +573,10 @@ function selecionarPote(botao) {
         document.querySelectorAll(".pote-opcao");
 
     botoes.forEach(function(item) {
-
         item.classList.remove("selecionado");
-
     });
 
-
     botao.classList.add("selecionado");
-
 
     const produto =
         botao.dataset.produto;
@@ -412,13 +584,11 @@ function selecionarPote(botao) {
     const preco =
         botao.dataset.preco;
 
-
     document.getElementById("produto").value =
         produto;
 
     document.getElementById("produtoPreco").value =
         preco;
-
 }
 
 
@@ -432,11 +602,8 @@ function fecharSistemaPedido() {
         document.getElementById("sistema-pedido");
 
     if (sistema) {
-
         sistema.remove();
-
     }
-
 }
 
 
@@ -458,8 +625,7 @@ function adicionarPedido() {
         document.getElementById("bebida");
 
     const observacoes =
-        document.getElementById("observacoes").value;
-
+        document.getElementById("observacoes").value.trim();
 
     if (quantidade < 1) {
 
@@ -472,7 +638,7 @@ function adicionarPedido() {
 
 
     // ===============================
-    // DADOS DO CLIENTE
+    // TIPO
     // ===============================
 
     const tipoSelecionado =
@@ -481,40 +647,50 @@ function adicionarPedido() {
         ).value;
 
 
+    // ===============================
+    // DADOS CLIENTE
+    // ===============================
+
     let nomeCliente = "";
     let enderecoCliente = "";
     let numeroCliente = "";
     let bairroCliente = "";
     let complementoCliente = "";
 
+    nomeCliente =
+        document.getElementById("nomeCliente").value.trim();
+
+    enderecoCliente =
+        document.getElementById("enderecoCliente").value.trim();
+
+    numeroCliente =
+        document.getElementById("numeroCliente").value.trim();
+
+    bairroCliente =
+        document.getElementById("bairroCliente").value.trim();
+
+    complementoCliente =
+        document.getElementById("complementoCliente").value.trim();
+
+
+    if (!nomeCliente) {
+
+        alert("Digite seu nome.");
+
+        return;
+    }
+
 
     if (tipoSelecionado === "Delivery") {
 
-        nomeCliente =
-            document.getElementById("nomeCliente").value.trim();
-
-        enderecoCliente =
-            document.getElementById("enderecoCliente").value.trim();
-
-        numeroCliente =
-            document.getElementById("numeroCliente").value.trim();
-
-        bairroCliente =
-            document.getElementById("bairroCliente").value.trim();
-
-        complementoCliente =
-            document.getElementById("complementoCliente").value.trim();
-
-
         if (
-            !nomeCliente ||
             !enderecoCliente ||
             !numeroCliente ||
             !bairroCliente
         ) {
 
             alert(
-                "Preencha seu nome, endereço, número e bairro."
+                "Para Delivery, preencha endereço, número e bairro."
             );
 
             return;
@@ -524,12 +700,60 @@ function adicionarPedido() {
 
 
     // ===============================
+    // PAGAMENTO
+    // ===============================
+
+    const formaPagamento =
+        document.getElementById("formaPagamento").value;
+
+    if (!formaPagamento) {
+
+        alert(
+            "Escolha a forma de pagamento."
+        );
+
+        return;
+    }
+
+
+    let precisaTroco = "Não";
+    let valorTroco = "";
+
+    if (formaPagamento === "Dinheiro") {
+
+        const trocoSelecionado =
+            document.querySelector(
+                'input[name="troco"]:checked'
+            );
+
+        if (trocoSelecionado) {
+            precisaTroco =
+                trocoSelecionado.value;
+        }
+
+        if (precisaTroco === "Sim") {
+
+            valorTroco =
+                document.getElementById("valorTroco").value.trim();
+
+            if (!valorTroco || Number(valorTroco) <= 0) {
+
+                alert(
+                    "Informe o valor para o qual precisa de troco."
+                );
+
+                return;
+            }
+        }
+    }
+
+
+    // ===============================
     // PRODUTO
     // ===============================
 
     const produtoNome =
         produto.value;
-
 
     const produtoPreco =
         Number(
@@ -543,7 +767,6 @@ function adicionarPedido() {
 
     const bebidaNome =
         bebida.value;
-
 
     const bebidaPreco =
         Number(
@@ -562,11 +785,9 @@ function adicionarPedido() {
             '.opcoes-pedido input[type="checkbox"]:checked'
         );
 
-
     let adicionais = [];
 
     let precoAdicionais = 0;
-
 
     adicionaisSelecionados.forEach(
         function(item) {
@@ -577,7 +798,6 @@ function adicionarPedido() {
 
             precoAdicionais +=
                 Number(item.dataset.preco);
-
         }
     );
 
@@ -591,13 +811,12 @@ function adicionarPedido() {
         precoAdicionais +
         bebidaPreco;
 
-
     const subtotal =
         valorUnitario * quantidade;
 
 
     // ===============================
-    // SALVAR PEDIDO
+    // SALVAR
     // ===============================
 
     pedidos.push({
@@ -632,17 +851,24 @@ function adicionarPedido() {
         complementoCliente:
             complementoCliente,
 
+        formaPagamento:
+            formaPagamento,
+
+        precisaTroco:
+            precisaTroco,
+
+        valorTroco:
+            valorTroco,
+
         observacoes:
             observacoes,
 
         subtotal:
             subtotal
-
     });
 
 
     mostrarResumo();
-
 }
 
 
@@ -655,18 +881,15 @@ function mostrarResumo() {
     const sistema =
         document.getElementById("sistema-pedido");
 
-
     let total = 0;
 
     let texto = "";
-
 
     pedidos.forEach(
         function(pedido, index) {
 
             total +=
                 pedido.subtotal;
-
 
             texto += `
 
@@ -698,6 +921,46 @@ function mostrarResumo() {
                     Tipo:
                     ${pedido.tipo}
 
+                    <br>
+
+                    Pagamento:
+                    ${pedido.formaPagamento}
+
+                    ${
+                        pedido.formaPagamento === "Dinheiro"
+                        ?
+                        `<br>Troco:
+                        ${
+                            pedido.precisaTroco === "Sim"
+                            ?
+                            "Para R$ " +
+                            Number(pedido.valorTroco)
+                            .toFixed(2)
+                            .replace(".", ",")
+                            :
+                            "Não precisa"
+                        }`
+                        :
+                        ""
+                    }
+
+                    ${
+                        pedido.tipo === "Retirada"
+                        ?
+                        `<br>📍 Enviar localização pelo WhatsApp`
+                        :
+                        ""
+                    }
+
+                    ${
+                        pedido.formaPagamento === "Pix"
+                        ?
+                        `<br>💚 Chave Pix será enviada pelo WhatsApp.<br>
+                        📎 Enviar comprovante pelo WhatsApp.`
+                        :
+                        ""
+                    }
+
                     ${
                         pedido.observacoes
                         ?
@@ -718,7 +981,6 @@ function mostrarResumo() {
                 </div>
 
             `;
-
         }
     );
 
@@ -734,16 +996,13 @@ function mostrarResumo() {
                 ×
             </button>
 
-
             <h2>
                 🧾 SEU PEDIDO
             </h2>
 
-
             <p class="pedido-subtitulo">
                 Confira tudo antes de enviar.
             </p>
-
 
             <div class="resumo-texto">
 
@@ -788,7 +1047,6 @@ function mostrarResumo() {
         </div>
 
     `;
-
 }
 
 
@@ -802,13 +1060,10 @@ function abrirNovoItem() {
         document.getElementById("sistema-pedido");
 
     if (sistema) {
-
         sistema.remove();
-
     }
 
     abrirSistemaPedido();
-
 }
 
 
@@ -823,15 +1078,12 @@ function cancelarPedido() {
             "Tem certeza que deseja cancelar o pedido?"
         );
 
-
     if (confirmar) {
 
         pedidos = [];
 
         fecharSistemaPedido();
-
     }
-
 }
 
 
@@ -842,7 +1094,6 @@ function cancelarPedido() {
 function enviarWhatsApp(event) {
 
     event.preventDefault();
-
 
     if (pedidos.length === 0) {
 
@@ -857,10 +1108,8 @@ function enviarWhatsApp(event) {
     let mensagem =
         "🌭 *NOVO PEDIDO - DELIVERY POTE DOG*%0A";
 
-
     mensagem +=
         "━━━━━━━━━━━━━━━━━━%0A";
-
 
     let total = 0;
 
@@ -871,10 +1120,8 @@ function enviarWhatsApp(event) {
             total +=
                 pedido.subtotal;
 
-
             mensagem +=
                 `%0A*ITEM ${index + 1}*%0A`;
-
 
             mensagem +=
                 `${pedido.quantidade}x ${pedido.produto}%0A`;
@@ -893,7 +1140,6 @@ function enviarWhatsApp(event) {
 
                 mensagem +=
                     `Adicionais: Nenhum%0A`;
-
             }
 
 
@@ -917,7 +1163,6 @@ function enviarWhatsApp(event) {
 
                 mensagem +=
                     `Observação: ${pedido.observacoes}%0A`;
-
             }
 
 
@@ -927,7 +1172,6 @@ function enviarWhatsApp(event) {
                 `Subtotal: R$ ${pedido.subtotal
                 .toFixed(2)
                 .replace(".", ",")}%0A`;
-
         }
     );
 
@@ -940,16 +1184,20 @@ function enviarWhatsApp(event) {
         pedidos[0];
 
 
+    mensagem +=
+        "%0A━━━━━━━━━━━━━━━━━━%0A";
+
+    mensagem +=
+        "👤 *DADOS DO CLIENTE*%0A";
+
+    mensagem +=
+        `Nome: ${primeiroPedido.nomeCliente}%0A`;
+
+
     if (primeiroPedido.tipo === "Delivery") {
 
         mensagem +=
-            "%0A━━━━━━━━━━━━━━━━━━%0A";
-
-        mensagem +=
-            "👤 *DADOS PARA ENTREGA*%0A";
-
-        mensagem +=
-            `Nome: ${primeiroPedido.nomeCliente}%0A`;
+            "🛵 *DELIVERY*%0A";
 
         mensagem +=
             `Endereço: ${primeiroPedido.enderecoCliente}%0A`;
@@ -964,47 +1212,97 @@ function enviarWhatsApp(event) {
 
             mensagem +=
                 `Complemento: ${primeiroPedido.complementoCliente}%0A`;
-
         }
 
+    } else {
+
+        mensagem +=
+            "🛍️ *RETIRADA*%0A";
+
+        mensagem +=
+            "📍 Cliente irá enviar a localização pelo WhatsApp.%0A";
     }
 
 
+    // ===============================
+    // PAGAMENTO
+    // ===============================
+
+    mensagem +=
+        "%0A💳 *PAGAMENTO*%0A";
+
+    mensagem +=
+        `Forma: ${primeiroPedido.formaPagamento}%0A`;
+
+
+    if (
+        primeiroPedido.formaPagamento === "Dinheiro"
+    ) {
+
+        if (
+            primeiroPedido.precisaTroco === "Sim"
+        ) {
+
+            mensagem +=
+                `💵 Troco para: R$ ${
+                    Number(primeiroPedido.valorTroco)
+                    .toFixed(2)
+                    .replace(".", ",")
+                }%0A`;
+
+        } else {
+
+            mensagem +=
+                "💵 Não precisa de troco.%0A";
+        }
+    }
+
+
+    if (
+        primeiroPedido.formaPagamento === "Pix"
+    ) {
+
+        mensagem +=
+            "💚 Enviar chave Pix pelo WhatsApp.%0A";
+
+        mensagem +=
+            "📎 Cliente irá enviar o comprovante pelo WhatsApp.%0A";
+    }
+
+
+    // ===============================
+    // TOTAL
+    // ===============================
+
     mensagem +=
         "%0A━━━━━━━━━━━━━━━━━━%0A";
-
 
     mensagem +=
         `💰 *TOTAL: R$ ${total
         .toFixed(2)
         .replace(".", ",")}*%0A`;
 
-
     mensagem +=
         "━━━━━━━━━━━━━━━━━━%0A";
-
 
     mensagem +=
         "📍 Delivery Pote Dog";
 
 
     // ===============================
-    // NÚMERO DO WHATSAPP
+    // WHATSAPP
     // ===============================
 
     const numero =
         "5544997655536";
 
-
     const url =
         `https://wa.me/${numero}?text=${mensagem}`;
-
 
     window.open(
         url,
         "_blank"
     );
-
 }
 
 
